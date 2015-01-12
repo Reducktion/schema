@@ -1,0 +1,52 @@
+﻿{
+
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "JSON schema for the Grunt tsd task",
+    "type": "object",
+
+    "definitions": {
+        "tsd-options-command": {
+            "description": "Execute a command.",
+            "enum": [ "install", "reinstall" ],
+            "default": "reinstall"
+        },
+        "tsd-options-latest": {
+            "description": "Always get from HEAD.",
+            "type": "boolean",
+            "default": true
+        },
+        "tsd-options-config": {
+            "description": "specify config file",
+            "type": "string",
+            "default": "tsd.json"
+        },
+        "tsd-options-opts": {
+            "type": "object"
+        },
+        "tsd-options": {
+            "description": "Set the options for grunt-contrib-copy",
+            "type": "object",
+            "properties": {
+                "command": { "$ref": "#/definitions/tsd-options-command" },
+                "latest": { "$ref": "#/definitions/tsd-options-latest" },
+                "config": { "$ref": "#/definitions/tsd-options-config" },
+                "opts": { "$ref": "#/definitions/tsd-options-opts" }
+            },
+            "required": [ "command" ]
+        },
+        "tsd-configuration": {
+            "properties": {
+                "options": { "$ref": "#/definitions/tsd-options" }
+            },
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "options": { "$ref": "#/definitions/tsd-options" }
+                }
+            }
+        }
+
+    },
+
+    "$ref": "#/definitions/tsd-configuration"
+}
