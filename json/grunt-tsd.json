@@ -1,6 +1,7 @@
 ﻿{
 
     "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "http://schema.reducktion.com/json/grunt-tsd.json",
     "title": "JSON schema for the Grunt tsd task",
     "type": "object",
 
